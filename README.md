@@ -1,10 +1,8 @@
 # Elastic stack (ELK) on Docker
 
 [![Elastic Stack version](https://img.shields.io/badge/Elastic%20Stack-8.3.2-00bfb3?style=flat&logo=elastic-stack)](https://www.elastic.co/blog/category/releases)
-[![Build Status](https://github.com/deviantony/docker-elk/workflows/CI/badge.svg?branch=main)](https://github.com/deviantony/docker-elk/actions?query=workflow%3ACI+branch%3Amain)
-[![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Run the latest version of the [Elastic stack][elk-stack] with Docker and Docker Compose.
+Run the latest version (v8.3.3) of the [Elastic stack][elk-stack] with Docker and Docker Compose.
 
 It gives you the ability to analyze any data set by using the searching/aggregation capabilities of Elasticsearch and
 the visualization power of Kibana.
@@ -23,22 +21,12 @@ Based on the official Docker images from Elastic:
 * [Logstash](https://github.com/elastic/logstash/tree/master/docker)
 * [Kibana](https://github.com/elastic/kibana/tree/master/src/dev/build/tasks/os_packages/docker_generator)
 
-Other available stack variants:
-
-* [`tls`](https://github.com/deviantony/docker-elk/tree/tls): TLS encryption enabled in Elasticsearch
-* [`searchguard`](https://github.com/deviantony/docker-elk/tree/searchguard): Search Guard support
 
 ---
 
 ## Philosophy
 
-We aim at providing the simplest possible entry into the Elastic stack for anybody who feels like experimenting with
-this powerful combo of technologies. This project's default configuration is purposely minimal and unopinionated. It
-does not rely on any external dependency, and uses as little custom automation as necessary to get things up and
-running.
-
-Instead, we believe in good documentation so that you can use this repository as a template, tweak it, and make it _your
-own_. [sherifabdlnaby/elastdocker][elastdocker] is one example among others of project that builds upon this idea.
+We believe in good documentation so that you can use this repository as a template, tweak it, and make it your own.
 
 ---
 
@@ -115,6 +103,10 @@ enabled for the `C:` drive.
 The default configuration of _Docker Desktop for Mac_ allows mounting files from `/Users/`, `/Volume/`, `/private/`,
 `/tmp` and `/var/folders` exclusively. Make sure the repository is cloned in one of those locations or follow the
 instructions from the [documentation][mac-filesharing] to add more locations.
+
+#### ubuntu
+
+The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository [documentation][ubuntu-filesharing]. 
 
 ## Usage
 
@@ -371,10 +363,7 @@ variable, allowing the user to adjust the amount of memory that can be used by e
 | Elasticsearch | ES_JAVA_OPTS         |
 | Logstash      | LS_JAVA_OPTS         |
 
-To accomodate environments where memory is scarce (Docker Desktop for Mac has only 2 GB available by default), the Heap
-Size allocation is capped by default in the `docker-compose.yml` file to 512 MB for Elasticsearch and 256 MB for
-Logstash. If you want to override the default JVM configuration, edit the matching environment variable(s) in the
-`docker-compose.yml` file.
+To accomodate environments where memory is scarce (Docker Desktop for Mac has only 2 GB available by default), the Heap Size allocation is capped by default in the `docker-compose.yml` file to 512 MB for Elasticsearch and 256 MB for Logstash. If you want to override the default JVM configuration, edit the matching environment variable(s) in the `docker-compose.yml` file.
 
 For example, to increase the maximum JVM Heap Size for Logstash:
 
@@ -436,6 +425,8 @@ See the following Wiki pages:
 
 [win-filesharing]: https://docs.docker.com/desktop/windows/#file-sharing
 [mac-filesharing]: https://docs.docker.com/desktop/mac/#file-sharing
+
+[ubuntu-filesharing]: https://docs.docker.com/engine/install/ubuntu/#file-sharing
 
 [builtin-users]: https://www.elastic.co/guide/en/elasticsearch/reference/current/built-in-users.html
 [ls-monitoring]: https://www.elastic.co/guide/en/logstash/current/monitoring-with-metricbeat.html

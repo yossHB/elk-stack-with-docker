@@ -17,6 +17,12 @@ filebeat.autodiscover:
 processors:
   - add_cloud_metadata: ~
 
+
+
+
+
+
+
 output.elasticsearch:
   hosts: ['http://elasticsearch:9200']
   username: elastic

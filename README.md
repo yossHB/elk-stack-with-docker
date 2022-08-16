@@ -37,6 +37,7 @@ We believe in good documentation so that you can use this repository as a templa
    * [Docker Desktop](#docker-desktop)
      * [Windows](#windows)
      * [macOS](#macos)
+     * [ubuntu](#ubuntu)
 1. [Usage](#usage)
    * [Bringing up the stack](#bringing-up-the-stack)
    * [Initial setup](#initial-setup)

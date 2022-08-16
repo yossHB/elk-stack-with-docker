@@ -59,13 +59,34 @@ metricbeat.modules:
   basepath: ""
   enabled: true
 
+- module: elasticsearch
+  xpack.enabled: true
+  period: 10s
+  hosts: ["http://localhost:9200"] 
+  #scope: node 
+  #username: "user"
+  #password: "secret"
+  #ssl.enabled: true
+  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate: "/etc/pki/client/cert.pem"
+  #ssl.key: "/etc/pki/client/cert.key"
+  #ssl.verification_mode: "full"
+
+setup.kibana:
+  host: "172.27.0.2:5601"
+  #username: "my_kibana_user"
+  #password: "YOUR_PASSWORD"
+
 processors:
   - add_cloud_metadata: ~
 
 output.elasticsearch:
-  hosts: ['http://elasticsearch:9200']
+  hosts: ["https://172.27.0.2:9200"] 
+  #hosts: ['http://elasticsearch:9200']
+  protocol: "https"
   username: elastic
   password: ${ELASTIC_PASSWORD}
+
 
 ## HTTP endpoint for health checking
 ## https://www.elastic.co/guide/en/beats/metricbeat/current/http-endpoint.html

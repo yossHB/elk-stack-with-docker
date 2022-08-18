@@ -22,14 +22,6 @@ Based on the official Docker images from Elastic:
 * [Kibana](https://github.com/elastic/kibana/tree/master/src/dev/build/tasks/os_packages/docker_generator)
 
 
----
-
-## Philosophy
-
-We believe in good documentation so that you can use this repository as a template, tweak it, and make it your own.
-
----
-
 ## Contents
 
 1. [Requirements](#requirements)
